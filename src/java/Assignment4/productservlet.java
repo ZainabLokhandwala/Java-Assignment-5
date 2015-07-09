@@ -75,8 +75,8 @@ public class productservlet {
             }
         }
         System.out.println(mapKeyValue);
-        doPostOrPutOrDelete("INSERT INTO Products_Table (Pro_Name, Pro_Description, Pro_Quantity) VALUES ( ?, ?, ?)",
-                mapKeyValue.get("Pro_Name"), mapKeyValue.get("Pro_Description"), mapKeyValue.get("Pro_Quantity"));
+        doPostOrPutOrDelete("INSERT INTO Products_Table (Pro_name, Pro_Description, Pro_Quantity) VALUES ( ?, ?, ?)",
+                mapKeyValue.get("Pro_name"), mapKeyValue.get("Pro_Description"), mapKeyValue.get("Pro_Quantity"));
     }
 
     @PUT
@@ -103,8 +103,8 @@ public class productservlet {
             }
         }
         System.out.println(mapKayValue);
-        doPostOrPutOrDelete("UPDATE Products_Table SET Pro_Name = ?, Pro_Description= ?, Pro_Quantity= ? WHERE Pro_ID= ?",
-                mapKayValue.get("Pro_Name"), mapKayValue.get("Pro_Description"), mapKayValue.get("Pro_Quantity"), id);
+        doPostOrPutOrDelete("UPDATE Products_Table SET Pro_name = ?, Pro_Description= ?, Pro_Quantity= ? WHERE Pro_ID= ?",
+                mapKayValue.get("Pro_name"), mapKayValue.get("Pro_Description"), mapKayValue.get("Pro_Quantity"), id);
 
     }
 
@@ -151,7 +151,7 @@ public class productservlet {
             while (rs.next()) {
                 Map productMap = new LinkedHashMap();
                 productMap.put("Pro_ID", rs.getInt("Pro_ID"));
-                productMap.put("Pro_Name", rs.getString("Pro_Name"));
+                productMap.put("Pro_name", rs.getString("Pro_name"));
                 productMap.put("Pro_Description", rs.getString("Pro_Description"));
                 productMap.put("Pro_Quantity", rs.getInt("Pro_Quantity"));
                 productArr.add(productMap);
