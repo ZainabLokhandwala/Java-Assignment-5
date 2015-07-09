@@ -36,7 +36,7 @@ import org.json.simple.JSONArray;
  */
 
 
-@Path("/products")
+@Path("/Products_Table")
 public class productservlet {
 
     @GET
@@ -47,8 +47,8 @@ public class productservlet {
 
     @GET
     @Produces("application/json")
-    @Path("{id}")
-    public String doGet(@PathParam("id") String Pro_ID) {
+    @Path("{Pro_ID}")
+    public String doGet(@PathParam("Pro_ID") String Pro_ID) {
         return getResults("SELECT * FROM Products_Table WHERE Pro_ID = ?", Pro_ID);
     }
 
@@ -80,7 +80,7 @@ public class productservlet {
     }
 
     @PUT
-    @Path("{id}")
+    @Path("{Pro_ID}")
     @Consumes("application/json")
     public void doPut(@PathParam("id") String id, String str) {
         JsonParser parser = Json.createParser(new StringReader(str));
@@ -109,8 +109,8 @@ public class productservlet {
     }
 
     @DELETE
-    @Path("{id}")
-    public void doDelete(@PathParam("id") String id, String str) {
+    @Path("{Pro_ID}")
+    public void doDelete(@PathParam("Pro_Id") String id, String str) {
         doPostOrPutOrDelete("DELETE FROM Products_Table WHERE Pro_ID = ?", id);
     }
 
