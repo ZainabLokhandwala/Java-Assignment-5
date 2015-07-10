@@ -82,7 +82,7 @@ public class productservlet {
     @PUT
     @Path("{Pro_ID}")
     @Consumes("application/json")
-    public void doPut(@PathParam("id") String id, String str) {
+    public void doPut(@PathParam("Pro_ID") String id, String str) {
         JsonParser parser = Json.createParser(new StringReader(str));
         Map<String, String> mapKayValue = new HashMap<>();
         String key = "", val;
@@ -174,7 +174,7 @@ public class productservlet {
 //    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 //        try (PrintWriter out = response.getWriter()) {
 //            if (!request.getParameterNames().hasMoreElements()) {
-//                out.println(getResults("SELECT * FROM product"));
+//                out.println(getResults("SELECT * FROM Products_Table"));
 //            } else {
 //                int Pro_ID = Integer.parseInt(request.getParameter("Pro_ID"));
 //                out.println(getResults("SELECT * FROM product WHERE productID = ?", String.valueOf(productID)));
@@ -197,25 +197,25 @@ public class productservlet {
 //        Set<String> keySet = request.getParameterMap().keySet();
 //        try (PrintWriter out = response.getWriter()) {
 //            Connection conn = getConnection();
-//            if (keySet.contains("name") && keySet.contains("description") && keySet.contains("quantity")) {
-//                PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `product`(`productID`, `name`, `description`, `quantity`) "
-//                        + "VALUES (null, '" + request.getParameter("name") + "', '"
-//                        + request.getParameter("description") + "', "
-//                        + request.getParameter("quantity") + ");"
+//            if (keySet.contains("Pro_name") && keySet.contains("Pro_Description") && keySet.contains("Pro_Quantity")) {
+//                PreparedStatement pstmt = conn.prepareStatement("INSERT INTO `Products_Table`(`Pro_ID`, `Pro_name`, `Pro_Description', `Pro_Quantity`) "
+//                        + "VALUES (null, '" + request.getParameter("Pro_Name") + "', '"
+//                        + request.getParameter("Pro_Description") + "', "
+//                        + request.getParameter("Pro_Quantity") + ");"
 //                );
 //                try {
 //                    pstmt.executeUpdate();
-//                    request.getParameter("productID");
+//                    request.getParameter("Pro_ID");
 //                    doGet(request, response);
 //                } catch (SQLException ex) {
-//                    Logger.getLogger(ProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+//                    Logger.getLogger(productservlet.class.getName()).log(Level.SEVERE, null, ex);
 //                    out.println("Data inserted Error while retriving data.");
 //                }
 //            } else {
 //                out.println("Error: Not enough data to input");
 //            }
 //        } catch (SQLException ex) {
-//            Logger.getLogger(ProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(productservlet.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
 //
@@ -224,24 +224,24 @@ public class productservlet {
 //        Set<String> keySet = request.getParameterMap().keySet();
 //        try (PrintWriter out = response.getWriter()) {
 //            Connection conn = getConnection();
-//            if (keySet.contains("productID") && keySet.contains("name") && keySet.contains("description") && keySet.contains("quantity")) {
-//                PreparedStatement pstmt = conn.prepareStatement("UPDATE `product` SET `name`='"
-//                        + request.getParameter("name") + "',`description`='"
-//                        + request.getParameter("description")
-//                        + "',`quantity`=" + request.getParameter("quantity")
-//                        + " WHERE `productID`=" + request.getParameter("productID"));
+//            if (keySet.contains("Pro_ID") && keySet.contains("Pro_name") && keySet.contains("Pro_Description") && keySet.contains("Pro_Quantity")) {
+//                PreparedStatement pstmt = conn.prepareStatement("UPDATE `Products_Table` SET `Pro_Name`='"
+//                        + request.getParameter("Pro_name") + "',`Pro_Description`='"
+//                        + request.getParameter("Pro_Description")
+//                        + "',`Pro_Quantity`=" + request.getParameter("Pro_Quantity")
+//                        + " WHERE `Pro_ID`=" + request.getParameter("Pro_ID"));
 //                try {
 //                    pstmt.executeUpdate();
 //                    doGet(request, response); //shows updated row
 //                } catch (SQLException ex) {
-//                    Logger.getLogger(ProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+//                    Logger.getLogger(productservlet.class.getName()).log(Level.SEVERE, null, ex);
 //                    out.println("Error putting values.");
 //                }
 //            } else {
 //                out.println("Error: Not enough data to update");
 //            }
 //        } catch (SQLException ex) {
-//            Logger.getLogger(ProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(productservlet.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
 //
@@ -250,19 +250,19 @@ public class productservlet {
 //        Set<String> keySet = request.getParameterMap().keySet();
 //        try (PrintWriter out = response.getWriter()) {
 //            Connection conn = getConnection();
-//            if (keySet.contains("productID")) {
-//                PreparedStatement pstmt = conn.prepareStatement("DELETE FROM `product` WHERE `productID`=" + request.getParameter("productID"));
+//            if (keySet.contains("Pro_ID")) {
+//                PreparedStatement pstmt = conn.prepareStatement("DELETE FROM `Products_Table` WHERE `Pro_ID`=" + request.getParameter("Pro_ID"));
 //                try {
 //                    pstmt.executeUpdate();
 //                } catch (SQLException ex) {
-//                    Logger.getLogger(ProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+//                    Logger.getLogger(product_servlet.class.getName()).log(Level.SEVERE, null, ex);
 //                    out.println("Error in deleting the product.");
 //                }
 //            } else {
 //                out.println("Error: in data to delete");
 //            }
 //        } catch (SQLException ex) {
-//            Logger.getLogger(ProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(productservlet.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
 //
